@@ -1,0 +1,16 @@
+﻿@model List<Courses>
+@{
+    ViewBag.Title = "AddCourses";
+}
+
+<h2>AddCourses</h2>
+@using (Html.BeginForm())
+{
+
+    foreach (var item in Model)
+    {
+        <input type="checkbox" name="courses" value="@item.ID"  />@item.Name<br />
+
+    }
+    <input type="submit" value="add" />
+}

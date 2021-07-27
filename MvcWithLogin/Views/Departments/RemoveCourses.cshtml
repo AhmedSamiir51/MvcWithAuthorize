@@ -1,0 +1,21 @@
+﻿
+@model List<Courses>
+@{
+    ViewBag.Title = "RemoveCourses";
+}
+
+<h2>RemoveCourses</h2>
+
+@using (Html.BeginForm())
+{
+
+    foreach (var item in Model)
+    {
+        <input type="checkbox" name="courses" value="@item.ID" />
+        @item.Name
+        <br />
+
+    }
+    <input type="submit" value="Remove" />
+}
+

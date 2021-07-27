@@ -1,0 +1,31 @@
+﻿@model  IEnumerable<Student>
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Display</h2>
+
+
+
+
+@using (Html.BeginForm("Display", "Departments", FormMethod.Post))
+{
+    @Html.DropDownList("C_ID", @ViewBag.scl as SelectList, htmlAttributes: new { @class = "form-control" })
+
+
+    foreach (var item in Model)
+    {
+        @Html.DisplayName(item.Name) 
+        <br />
+        <label>Grade</label>
+        <input type="text" name="mydic.@item.ID" />
+        <br />
+
+    }
+
+
+    <input type="submit" value="Add" />
+
+
+}
+

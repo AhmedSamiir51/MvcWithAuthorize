@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MvcWithLogin.Models.Courses>
+
+@{
+    ViewBag.Title = "Courses";
+}
+
+<div class="container-fluid px-4">
+    
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            DataTable Example
+        </div>
+        <div class="card-body">
+
+            @Html.ActionLink("Create New", "Create" , null , new { @class = "btn btn-danger" })
+            <table class="table " id="datatablesSimple">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>Edit</th>
+                    <th>Detils</th>
+                    <th>Delete</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID } , new { @class = "btn btn-secondary" })
+
+                        </td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.ID } , new { @class = "btn btn-secondary" }) 
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID } , new { @class = "btn btn-secondary" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
